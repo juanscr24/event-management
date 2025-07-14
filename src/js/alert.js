@@ -29,3 +29,23 @@ export function alertError(message) {
         title: message
     });
 }
+
+export async function alertQuestion(title, confirmMsg, cancelMsg, paramsFunc) {
+    const result = await Swal.fire({
+            title: title,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: confirmMsg,
+            cancelButtonText: cancelMsg,
+        });
+    if (result.isConfirmed) {
+        try {
+            paramsFunc
+        } catch (error) {
+            alerError("Error al cerrar sesion.");
+            console.error(error);
+        }
+    }
+}

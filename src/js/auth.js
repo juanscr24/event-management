@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { endpointUsers } from './main';
 import { alertSucces } from './alert';
+import Swal from 'sweetalert2';
 
 // This Javascript will have the entire authentication system
 
@@ -31,10 +32,28 @@ export async function loginUser(email, password) {
 }
 
 // This function removes the local storage and also redirects you to the login
-export function logout() {
-    localStorage.removeItem('user');
-    alertSucces('Cerraste sesion de forma exitosa!')
-    window.location.hash = '#login';
+
+export async function logout() {
+const result = await Swal.fire({
+        title: "Estas seguro de cerrar sesion?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Si, Porfavor!",
+        cancelButtonText: "No, Gracias",
+    });
+
+    if (result.isConfirmed) {
+        try {
+            localStorage.removeItem('user');
+            alertSucces('Cerraste sesion de forma exitosa!')
+            window.location.hash = '#login';
+        } catch (error) {
+            alerError("Error al cerrar sesion.");
+            console.error(error);
+        }
+    }
 }
 
 // Check if your email already exists and then make a post if the credentials are valid
