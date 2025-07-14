@@ -1,8 +1,8 @@
 import { alertSucces } from './alert.js';
 import { registerUser } from './auth.js';
+import { app } from './main.js';
 
-const app = document.getElementById("app");
-
+// This function renders the login
 export function renderRegister() {
     app.innerHTML = `
     <div class="body-container-register"">
@@ -19,6 +19,7 @@ export function renderRegister() {
     </div>
     `;
 
+    // The values of the form are taken and it is validated if they already exist and then they are created if they do not.
     document.getElementById("registerForm").addEventListener("submit", async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -28,6 +29,7 @@ export function renderRegister() {
             password: form.password.value
         };
         try {
+            // Function done in auth.js
             await registerUser(user);
             alertSucces('Registro exitoso. Inicia sesión.')
             window.location.hash = "#login";

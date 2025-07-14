@@ -1,5 +1,7 @@
 import Swal from "sweetalert2";
 
+// This Javascript will have the entire project alert system
+
 const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -12,6 +14,7 @@ const Toast = Swal.mixin({
     }
 });
 
+// Alert succes
 export function alertSucces(message) {
     Toast.fire({
         icon: "success",
@@ -19,6 +22,7 @@ export function alertSucces(message) {
     });
 }
 
+// Alert error
 export function alertError(message) {
     Toast.fire({
         icon: "error",

@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { logout } from './auth.js';
-import { endpointEvent } from './main.js';
+import { app, endpointEvent } from './main.js';
 
-const app = document.getElementById("app");
-
+// The HTML of the panel was rendered
 export function renderDashboard() {
     app.innerHTML = `
     <div class="container-dashboard">
@@ -17,31 +16,33 @@ export function renderDashboard() {
             <input type="date" name="date" placeholder="Fecha" required />
             <button type="submit">Crear Evento</button>
         </form>
-        <h3 class="created-event">Eventos creados</h3>
-
+        
         <div id="editSection" style="display: none;">
-            <h3>Editar evento</h3>
-                <form id="editForm">
-                    <input type="text" name="name" placeholder="Nuevo nombre" required />
-                    <input type="date" name="date" placeholder="Nueva fecha" required />
-                    <button type="submit">Guardar cambios</button>
-                    <button type="button" id="cancelEdit">Cancelar</button>
-                </form>
+        <h3>Editar evento</h3>
+        <form id="editForm">
+        <input type="text" name="name" placeholder="Nuevo nombre" required />
+        <input type="date" name="date" placeholder="Nueva fecha" required />
+        <button type="submit">Guardar cambios</button>
+        <button type="button" id="cancelEdit">Cancelar</button>
+        </form>
         </div>
-
+        
+        <h3 class="created-event">Eventos creados</h3>
         <ul id="eventList"></ul>
     </div>
     `;
 
     document.getElementById("logoutBtn").addEventListener("click", logout);
 
+    // Declare the HTML variables
     const eventForm = document.getElementById("eventForm");
     const editSection = document.getElementById("editSection");
     const editForm = document.getElementById("editForm");
     const cancelEdit = document.getElementById("cancelEdit");
 
-    let editingId = null; // Guardamos el ID del evento que se está editando
+    let editingId = null; // Save the ID of the event we are editing.
 
+    //An event is given to the form
     eventForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const { name, date } = e.target;
@@ -54,12 +55,14 @@ export function renderDashboard() {
         loadEvents();
     });
 
+    // If you no want to delete or edit anything, it is cancelled.
     cancelEdit.addEventListener("click", () => {
         editSection.style.display = "none";
         editingId = null;
         editForm.reset();
     });
 
+    // The form is edited
     editForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const { name, date } = e.target;
@@ -78,6 +81,7 @@ export function renderDashboard() {
         loadEvents();
     });
 
+    // The event loads and creates a list, with the event and the date
     async function loadEvents() {
         const { data } = await axios.get(endpointEvent);
         const list = document.getElementById("eventList");

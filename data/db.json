@@ -38,20 +38,9 @@
   ],
   "events": [
     {
-      "id": "6bfe",
-      "name": "Salir a caminar en el malecon",
-      "date": "2025-10-24",
-      "usersRegistered": [
-        "ecd9",
-        "3681",
-        "21b5",
-        "e156"
-      ]
-    },
-    {
       "id": "07e4",
       "name": "Fiesta en la playa",
-      "date": "2025-12-24",
+      "date": "2025-12-26",
       "usersRegistered": [
         "21b5",
         "e156"

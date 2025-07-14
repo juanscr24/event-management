@@ -1,8 +1,8 @@
 import { alertError } from './alert.js';
 import { loginUser } from './auth.js';
+import { app } from './main.js';
 
-const app = document.getElementById("app");
-
+// This function renders the login
 export function renderLogin() {
     app.innerHTML = `
     <div class="body-container-login">
@@ -19,6 +19,7 @@ export function renderLogin() {
     </div>
     `;
 
+    // If the email and password values do not match, there are wrong values, which will throw an error message
     document.getElementById("loginForm").addEventListener("submit", async (e) => {
         e.preventDefault();
         const { email, password } = e.target;

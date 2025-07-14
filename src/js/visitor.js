@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { logout, getUser } from './auth.js';
-import { endpointEvent } from './main.js';
+import { app, endpointEvent } from './main.js';
 import { alertSucces } from './alert.js';
-
-const app = document.getElementById("app");
 
 export function renderVisitorView() {
     app.innerHTML = `
