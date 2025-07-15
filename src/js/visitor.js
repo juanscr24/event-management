@@ -3,12 +3,23 @@ import { logout, getUser } from './auth.js';
 import { app, endpointEvent } from './main.js';
 import { alertSucces } from './alert.js';
 
+
 export function renderVisitorView() {
+    const user = getUser()
+
     app.innerHTML = `
     <div class="container-dashboard">
         <nav>
+            <div class="logout-visitor">
+            <img class="logo" src="./public/icon/iconPage.webp" alt="Logo">
             <h2>Eventos disponibles</h2>
-            <button id="logoutBtn">Cerrar sesión</button>
+            </div>
+            <div class="logout-visitor">
+                <p>${user.name}</p>
+                <button id="logoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
         </nav>
         <ul id="eventList"></ul>
     </div>

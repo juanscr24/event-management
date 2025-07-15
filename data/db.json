@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "name": "Admin",
+      "name": "Administrador",
       "email": "admin@riwi.com",
       "password": "12345",
       "role": "admin"
@@ -52,6 +52,14 @@
       "date": "2025-09-14",
       "usersRegistered": [
         "21b5",
+        "e156"
+      ]
+    },
+    {
+      "id": "bf8b",
+      "name": "Puerto Colombia",
+      "date": "2024-10-30",
+      "usersRegistered": [
         "e156"
       ]
     }

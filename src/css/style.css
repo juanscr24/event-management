@@ -76,6 +76,10 @@
     text-decoration: none;
 }
 
+.container-login a:hover {
+    color: #ffffff;
+}
+
 /* REGISTER */
 
 .body-container-register {
@@ -188,6 +192,11 @@ nav button:hover {
     padding: 12px;
     width: 100%;
     background-color: #e4e2e2;
+    
+}
+
+#eventForm button {
+    color: white;
 }
 
 #eventForm input::placeholder {
@@ -210,6 +219,30 @@ nav button:hover {
     background-color: #040F16;
     color: #e4e2e2;
     transition: ease-in-out 0.3s;
+}
+
+.logout-visitor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.logo {
+    width: 30px;
+}
+
+.fa-arrow-right-from-bracket {
+    color: white;
+    font-size: 20px;
+}
+
+.fa-arrow-right-from-bracket:hover {
+    color: #040F16;
+}
+
+#logoutBtn {
+    background-color: #627271;
 }
 
 /* EDIT OR DELETE */
@@ -248,6 +281,7 @@ li button{
     cursor: pointer;
     transition: ease-in-out 0.4s;
     background-color: #627271;
+    color: white;
 }
 
 #editForm button:hover,
@@ -280,3 +314,4 @@ ul li {
 .created-event {
     margin: 30px;
 }
+

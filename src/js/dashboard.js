@@ -1,14 +1,24 @@
 import axios from 'axios';
-import { logout } from './auth.js';
+import { getUser, logout } from './auth.js';
 import { app, endpointEvent } from './main.js';
 
 // The HTML of the panel was rendered
 export function renderDashboard() {
+    const user = getUser()
+
     app.innerHTML = `
     <div class="container-dashboard">
         <nav>
-            <h2>Administrador</h2>
-            <button id="logoutBtn">Cerrar sesión</button>
+            <div class="logout-visitor">
+            <img class="logo" src="./public/icon/iconPage.webp" alt="Logo">
+            <h2>Eventos disponibles</h2>
+            </div>
+            <div class="logout-visitor">
+                <p>${user.name}</p>
+                <button id="logoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
         </nav>
         <h3>Crear evento</h3>
         <form id="eventForm">
@@ -92,8 +102,8 @@ export function renderDashboard() {
             li.innerHTML = `
         ${ev.name} - ${ev.date}
         <div class="container-button">
-        <button class="deleteBtn" data-id="${ev.id}">Eliminar</button>
         <button class="editBtn" data-id="${ev.id}">Editar</button>
+        <button class="deleteBtn" data-id="${ev.id}">Eliminar</button>
         </div>
         `;
             list.appendChild(li);
