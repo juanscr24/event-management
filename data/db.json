@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@riwi.com",
+      "password": "12345",
+      "role": "admin"
+    },
+    {
+      "id": "ecd9",
+      "name": "Juan",
+      "email": "juanscr24@gmail.com",
+      "password": "12345",
+      "role": "visitor"
+    },
+    {
+      "id": "21b5",
+      "name": "Pepito",
+      "email": "pepito@gmail.com",
+      "password": "12345",
+      "role": "visitor"
+    },
+    {
+      "id": "3681",
+      "name": "pepito",
+      "email": "pepito@hotmail.com",
+      "password": "1234522",
+      "role": "visitor"
+    },
+    {
+      "id": "e156",
+      "name": "Juan Cardona",
+      "email": "juan@gmail.com",
+      "password": "12345",
+      "role": "visitor"
+    }
+  ],
+  "events": [
+    {
+      "id": "07e4",
+      "name": "Fiesta en la playa",
+      "date": "2025-12-26",
+      "usersRegistered": [
+        "21b5",
+        "e156"
+      ]
+    },
+    {
+      "id": "3530",
+      "name": "Comer salchipapa",
+      "date": "2025-09-14",
+      "usersRegistered": [
+        "21b5",
+        "e156"
+      ]
+    },
+    {
+      "id": "bf8b",
+      "name": "Puerto Colombia",
+      "date": "2024-10-30",
+      "usersRegistered": [
+        "e156"
+      ]
+    }
+  ]
+}
