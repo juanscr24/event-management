@@ -313,5 +313,42 @@ ul li {
 
 .created-event {
     margin: 30px;
+    
 }
 
+/* RESPONSIVE 700PX */
+
+@media screen and (max-width:700px) { 
+    #eventList li {
+        grid-template-columns: 1fr;
+    }
+    .logout-visitor h2{
+        font-size: 16px;
+    }
+    .logout-visitor .logo{
+        width: 25px;
+    }
+    #eventForm {
+        flex-direction: column;
+        width: 60%;
+    }
+    #editSection {
+        flex-direction: column;
+        width: 60%;
+    }
+
+    #editForm {
+        flex-direction: column;
+    }
+}
+
+/* RESPONSIVE 500PX */
+
+@media screen and (max-width:500px) {
+    #editSection {
+        width: 70%;
+    }
+    #eventForm {
+        width: 70%;
+    }
+}
